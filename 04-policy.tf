@@ -1,7 +1,8 @@
 # This is 1 of 2 Permission policies for users to utilize
 resource "aws_iam_user_policy" "policy_one" {
-  name        = "policy_one"
-  user =  "user_one" #I need help using python variables to link with the .tfvars file
+  name        = "policy_sargeants"
+  user =  "sargeant" #I need help using python variables to link with the .tfvars file
+  iam_group_membership = "sargeants"
  
 
   # Terraform's "jsonencode" function converts a
@@ -26,8 +27,9 @@ resource "aws_iam_user_policy" "policy_one" {
 # This is 2 of 2 Permission policies for users to utilize
 # Second user policy to link to the .tfvars file
 resource "aws_iam_user_policy" "policy_two" {
-  name        = "policy_two"
-  user =  "user_two" #I need help using python variables to link with the .tfvars file
+  name        = "policy_airmen"
+  user =  "airmen" #I need help using python variables to link with the .tfvars file
+  iam_group_membership = "airmen"
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.

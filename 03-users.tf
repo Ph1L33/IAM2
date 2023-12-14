@@ -1,21 +1,19 @@
 # This is to link 4 USER placeholders to link to .tfvars file
 
-resource "aws_iam_user" "user_one" {
+resource "aws_iam_user" {
     name = "user_one"
-}
-output "secret_key"{
-    value = aws_iam_access_key.key.secret
-        sensitive = true
+    type = list(string)
+    description = "user name"
 }
 
-resource  "aws_iam_user" "user_two" {
-    name = "user_two"
+resource "aws_iam_user.airmen.name" {
+    name = "airmen"
+    type =list(string)
+    default = []
 }
 
-resource  "aws_iam_user" "user_three" {
-    name = "user_three"
-}
-
-resource  "aws_iam_user" "user_four" {
-    name = "user_four"
+resource "aws_iam_user.sargeant.name" {
+    name = "sargeant"
+    type = list(string)
+    default = []
 }
